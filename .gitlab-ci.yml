@@ -16,3 +16,5 @@ prod-deploy-job:
   only: 
     - main
   image: hub.ilearned.eu/i-learned/ci-cd/alpine-sass
+  tags: 
+    - AMD64

@@ -5,38 +5,92 @@ header
   display: flex
   justify-content: space-between
   padding: 30px 45px
-  vertical-align: middle
+  align-items: center
+
   *
     display: flex
     align-items: center
     gap: 15px
+
   .left img
-      width: 35px
+    width: 35px
+
   .right a
     color: var(--cta-normal-color)
     font-weight: 600
+
     &:not(:last-of-type)::after
       content: "·"
       color: var(--text-color)
       font-weight: bolder
       pointer-events: none
+
   #menuIcon
     display: none
+    width: 60px
+    height: 45px
+    position: relative
+    transform: rotate(0deg) scale(0.5)
+    transition: 0.5s ease-in-out
+    cursor: pointer
+
+    &.open span
+      &:nth-child(1)
+        top: 18px
+        width: 0%
+        left: 50%
+
+      &:nth-child(2)
+        transform: rotate(45deg)
+
+      &:nth-child(3)
+        transform: rotate(-45deg)
+
+      &:nth-child(4)
+        top: 18px
+        width: 0%
+        left: 50%
+
+    span
+      display: block
+      position: absolute
+      height: 8px
+      width: 100%
+      background: var(--cta-light-color)
+      border-radius: 9px
+      opacity: 1
+      left: 0
+      transform: rotate(0deg)
+      transition: 0.25s ease-in-out
+
+  & span:nth-child(1)
+    top: 0px
+
+  & span:nth-child(2), & span:nth-child(3)
+    top: 18px
+
+  & span:nth-child(4)
+    top: 36px
 
 @media only screen and (max-width: 800px)
   header
     #menuIcon
       color: var(--text-color)
       fill: currentColor
+      display: block
+
     .right
       margin-top: 15px
       flex-wrap: wrap
       display: none
+
       a
         break-after: always
+
         &:not(:last-of-type)::after
           content: ""
 
     flex-wrap: wrap
+
     *
       gap: 7px

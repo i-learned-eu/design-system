@@ -8,6 +8,7 @@ header
   align-items: center
   position: relative
   z-index: 10
+  transition: .3s
   *
     display: flex
     align-items: center
@@ -30,6 +31,15 @@ header
       color: var(--text-color)
       font-weight: bolder
       pointer-events: none
+  &.scroll
+    border-radius: 15px
+    padding: 17px 30px
+    opacity: 90%
+    top: 20px
+    left: 5%
+    backdrop-filter: blur(3px)
+    position: fixed
+    width: 90%
 
   #menuIcon
     display: none

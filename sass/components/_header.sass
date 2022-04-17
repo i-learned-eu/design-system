@@ -1,18 +1,18 @@
 body main
-  margin-top: 96px
+  margin-top: 146px
 
 header
   background: var(--header-bg-color)
   border-radius: 0px 0px 10px 10px
-  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1)
+  box-shadow: var(--header-shadow)
   display: flex
   justify-content: space-between
   padding: 30.5px 45px
   align-items: center
-  position: fixed
+  position: absolute
   width: 100%
   z-index: 10
-  transition: 0.2s ease-in-out
+  transition: 0.3s
   left: 0
   top: 0
   *
@@ -48,6 +48,7 @@ header
     backdrop-filter: blur(3px) saturate(0.2)
     position: fixed
     width: 90%
+    border: 3px solid var(--card-border-color)
     h2
       font-size: 22px
     img
@@ -104,6 +105,12 @@ header
 @media only screen and (max-width: 800px)
   header
     flex-wrap: wrap
+    justify-content: space-around
+    padding: 25px
+    &.scroll
+      width: 95%
+      left: 2.5%
+
     #menuIcon
       color: var(--text-color)
       fill: currentColor

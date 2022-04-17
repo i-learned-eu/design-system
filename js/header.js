@@ -21,6 +21,6 @@ const remove_class_on_scroll = () => header.classList.remove("scroll")
 window.addEventListener('scroll', function() {
   scrollpos = window.scrollY
 
-  if (scrollpos > 0) { add_class_on_scroll() }
+  if (scrollpos > 1) { add_class_on_scroll() }
   else { remove_class_on_scroll() }
 })

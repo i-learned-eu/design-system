@@ -2,9 +2,9 @@ body main
   margin-top: 146px
 
 header
-  background: var(--header-bg-color)
+  background: color.adjust(var(--bg-blue-80-color), $alpha: -0.06)
   border-radius: 0px 0px 10px 10px
-  box-shadow: var(--header-shadow)
+  box-shadow: 0 0 24px hsla(0, 0%, 70%, 0.9)
   display: flex
   justify-content: space-between
   padding: 30.5px 45px
@@ -26,18 +26,18 @@ header
     h2
       font-size: 25px
       b
-        color: var(--cta-2-color)
+        color: var(--cta-100-color)
         margin-left: -7px
         font-weight: 600
 
   .right a
-    color: var(--cta-2-color)
+    color: var(--cta-100-color)
     font-weight: 500
     font-size: 17px
 
     &:not(:last-of-type)::after
       content: "·"
-      color: var(--text-color)
+      color: var(--text-100-color)
       font-weight: bolder
       pointer-events: none
   &.scroll

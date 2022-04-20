@@ -6,17 +6,20 @@
     border-radius: 14px
     width: max-content
     margin-bottom: 4px
+    font-weight: 500
     &-primary
-        background-color: var(--cta-2-color)
-        box-shadow: 4px 4px 0px var(--cta-3-color)
-        color: #fff
+        background-color: var(--cta-100-color);
+        box-shadow: 6px 6px 0px var(--cta-90-color);
+        color: var(--bg-red-90-color);
+        border: 3px solid var(--cta-120-color);
 
     &-secondary
-        background-color: var(--secondary-bg-color)
-        box-shadow: 4px 4px 0px var(--darker-bg-color)
-        color: var(--text-color)
+        background-color: var(--bg-red-100-color);
+        box-shadow: 6px 6px 0px var(--bg-red-110-color);
+        color: var(--cta-90-color);
+        border: 3px solid var(--cta-80-color);
     &:hover
         cursor: pointer
         box-shadow: none
         transition: 0.1s
-        transform: translate(4px, 4px)
+        transform: translate(6px, 6px)

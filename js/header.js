@@ -4,9 +4,11 @@ function openMenu() {
  if (toggled) {
    document.querySelector("header .right").style.display = "flex";
    document.querySelector("header #menuIcon").classList.add("open")
+   add_class_on_scroll()
  } else {
    document.querySelector("header .right").style.display = "none";
    document.querySelector("header #menuIcon").classList.remove("open")
+   remove_class_on_scroll()
  }
  toggled = !toggled;
 }

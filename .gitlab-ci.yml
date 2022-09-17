@@ -4,10 +4,14 @@ stages:
   - deploy
 
 include:
-    remote: "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/makefile-build.yml"
-    remote: "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/prettier.yml"
+  - project: ci-cd/ci-cd-templates
+    ref: latest
+    file: makefile-build.yml
+  - project: ci-cd/ci-cd-templates
+    ref: latest
+    file: prettier.yml
 
-prod-deploy-job: 
+deploy:
   stage: deploy
   script:
     - eval $(ssh-agent -s)

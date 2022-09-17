@@ -4,9 +4,8 @@ stages:
     - deploy
 
 include:
-    remote:
-        - "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/makefile-build.yml"
-        - "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/prettier.yml"
+    - "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/makefile-build.yml"
+    - "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/prettier.yml"
 
 deploy:
     stage: deploy

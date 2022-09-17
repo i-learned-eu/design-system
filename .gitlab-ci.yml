@@ -1,18 +1,21 @@
 stages:
-  - prod-deploy
+  - lint
+  - build
+  - deploy
+
+include:
+    remote: "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/docker-build.yml"
+    remote: "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/hadolint.yml"
 
 prod-deploy-job: 
-  stage: prod-deploy
+  stage: deploy
   script:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
     - echo "$SSH_EBANVM01_PRIVATE_KEY" > ~/.ssh/id_ed25519
     - chmod 600 ~/.ssh/id_ed25519
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - rm -rf demo.html .git
-    - mkdir css
-    - sass --style compressed sass/base.sass css/base.min.css
-    - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" . deploy@vm01.eban.eu.org:/var/www/ilearned-cdn
+    - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned-cdn
   only: 
     - main
   image: hub.ilearned.eu/i-learned/ci-cd/alpine-sass

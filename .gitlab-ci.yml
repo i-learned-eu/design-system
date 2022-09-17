@@ -15,7 +15,7 @@ deploy:
         - mkdir -p ~/.ssh
         - echo "$SSH_EBANVM01_PRIVATE_KEY" > ~/.ssh/id_ed25519
         - chmod 600 ~/.ssh/id_ed25519
-        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+        - echo 'vm01.eban.eu.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKnJXmNN2/41gmHqLbUE6+R5qG5ycYvj8fe7KVCeneLm2oBY45oN8kmvT9qi+WKZj+hfTikphHRxw+9LxidveL8=' > ~/.ssh/known_hosts
         - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned-cdn
     only:
         variables:

@@ -8,6 +8,7 @@ include:
     - "https://gitlab.ilearned.eu/i-learned/ci-cd/ci-cd-templates/-/raw/main/prettier.yml"
 
 deploy:
+    image: hub.ilearned.eu/i-learned/ci-cd/alpine-sass
     stage: deploy
     script:
         - eval $(ssh-agent -s)
@@ -17,7 +18,5 @@ deploy:
         - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
         - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned-cdn
     only:
-        - main
-    image: hub.ilearned.eu/i-learned/ci-cd/alpine-sass
-    tags:
-        - AMD64
+        variables:
+            - $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
